@@ -37,11 +37,8 @@ async def main():
             input_vars=variables,
         )
 
-        # Add the request to the history
-        history.append("User: " + request)
-        history.append("Assistant" + result.result)
-
-        print("Assistant > " + result.result)
+        history.extend((f"User: {request}", f"Assistant{result.result}"))
+        print(f"Assistant > {result.result}")
 
 
 # Run the main function
